@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Location Redirect</title>
+  </head>
+
+  <body>
+    <h1>Password Generator</h1>
+    <script>
+// an array of special characters
+var specialChar = ["*", " ", "#", "$", "%", "&", "+", "-","/","@","<",">",";",":"];
+//creating a variable that generates a random character out of the array
+var randomSpecial = specialChar[Math.floor(Math.random() * specialChar.length)];
+var lowAlpha = 'abcdefghijklmnopqrstuvwxyz';
+// setting up access to individual random uppercase and lowercase letters in the alphabet
+var upAlpha = lowAlpha.toUpperCase();
+var lowLetters = lowAlpha[Math.floor(Math.random() * lowAlpha.length )];
+var upLetters = upAlpha[Math.floor(Math.random() * upAlpha.length)];
+// generate a random number
+var num = Math.floor(Math.random() * 10);
+
+// getting user input
+var howMany;
+
+function getUserInput(){
+howMany = prompt("How long do you want your password to be? It must contain at least 8 characters");
+return;
+}
+
+getUserInput();
+
+// verifies that the user input is a number and is an appropriate length
+while(isNaN(howMany) || howMany < 8 || howMany > 17 ){
+    alert("Error. Please only type a number between 8 and 17");
+    getUserInput();
+}
+var addSpecial = confirm("Do you want to add a special character?");
+
+var addUpper = confirm("Do you want to add uppercase letters?");
+
+var addLower = confirm("Do you want to add lower case letters?");
+
+var addNum = confirm("Do you want to add numbers?");
+
+    </script>
+  </body>
+</html>
