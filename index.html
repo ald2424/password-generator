@@ -35,13 +35,53 @@ while(isNaN(howMany) || howMany < 8 || howMany > 17 ){
     alert("Error. Please only type a number between 8 and 17");
     getUserInput();
 }
-var addSpecial = confirm("Do you want to add a special character?");
 
-var addUpper = confirm("Do you want to add uppercase letters?");
+var addSpecial;
+var addUpper;
+var addLower;
+var addNum;
+var yes = 0;
+var no = 0;
+function yesorNo(){
+    addSpecial = confirm("Do you want to add a special character?");
+        if(addSpecial){
+            yes++;
+        }
+        else{
+            no++;
+        }
 
-var addLower = confirm("Do you want to add lower case letters?");
+    addUpper = confirm("Do you want to add uppercase letters?");
+        if(addUpper){
+            yes++;
+        }
+        else{
+            no++;
+        }
 
-var addNum = confirm("Do you want to add numbers?");
+    addLower = confirm("Do you want to add lower case letters?");
+        if(addLower){
+            yes++;
+        }
+        else{
+            no++;
+        }
+
+    addNum = confirm("Do you want to add numbers?");
+        if(addNum){
+            yes++;
+        }
+        else{
+            no++;
+        }
+}
+yesorNo();
+
+// verify that the user selected yes for at least two of the questions
+while(yes < 2){
+    alert("You must select yes to at least two of these questions");
+    yesorNo();
+}
 
     </script>
   </body>
