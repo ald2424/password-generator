@@ -10,15 +10,13 @@
     <script>
 // an array of special characters
 var specialChar = ["*", " ", "#", "$", "%", "&", "+", "-","/","@","<",">",";",":"];
-//creating a variable that generates a random character out of the array
-var randomSpecial = specialChar[Math.floor(Math.random() * specialChar.length)];
-var lowAlpha = 'abcdefghijklmnopqrstuvwxyz';
-// setting up access to individual random uppercase and lowercase letters in the alphabet
-var upAlpha = lowAlpha.toUpperCase();
-var lowLetters = lowAlpha[Math.floor(Math.random() * lowAlpha.length )];
-var upLetters = upAlpha[Math.floor(Math.random() * upAlpha.length)];
+
+var lowAlpha = ["a", "b", "c", "d", "e"];
+
+var upAlpha = ["A", "B", "C", "D", "E"];
+
 // generate a random number
-var num = Math.floor(Math.random() * 10);
+var num = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 // getting user input
 var howMany;
@@ -36,16 +34,25 @@ while(isNaN(howMany) || howMany < 8 || howMany > 17 ){
     getUserInput();
 }
 
+// Setting global variables
 var addSpecial;
 var addUpper;
 var addLower;
 var addNum;
 var yes = 0;
 var no = 0;
+var password = [];
+var specialPassword = []
+
+// this function will determine which arrays to use to generate the password
 function yesorNo(){
+   specialPassword = password;
+    
     addSpecial = confirm("Do you want to add a special character?");
         if(addSpecial){
-            yes++;
+            specialPassword = specialPassword.concat(specialChar);
+            alert(specialPassword);
+            yes++
         }
         else{
             no++;
@@ -53,6 +60,8 @@ function yesorNo(){
 
     addUpper = confirm("Do you want to add uppercase letters?");
         if(addUpper){
+            specialPassword = specialPassword.concat(upAlpha);
+            alert(specialPassword);
             yes++;
         }
         else{
@@ -61,6 +70,8 @@ function yesorNo(){
 
     addLower = confirm("Do you want to add lower case letters?");
         if(addLower){
+            specialPassword = specialPassword.concat(lowAlpha);
+            alert(specialPassword);
             yes++;
         }
         else{
@@ -69,6 +80,8 @@ function yesorNo(){
 
     addNum = confirm("Do you want to add numbers?");
         if(addNum){
+            specialPassword = specialPassword.concat(num);
+            alert(specialPassword);
             yes++;
         }
         else{
@@ -82,6 +95,8 @@ while(yes < 2){
     alert("You must select yes to at least two of these questions");
     yesorNo();
 }
+
+
 
     </script>
   </body>
