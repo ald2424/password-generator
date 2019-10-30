@@ -110,5 +110,11 @@ var newPassword = specialPassword.slice(0, howMany);
 
 // Takes the commas and spacing out of the array
 var final = newPassword.join('');
-alert(final);
+
+// Prints password on the screen
+document.getElementById('cardBody').innerHTML = final;
+
+
+
+
 
