@@ -114,6 +114,13 @@ var final = newPassword.join('');
 // Prints password on the screen
 document.getElementById('cardBody').innerHTML = final;
 
+function copy(){
+   var copyText = document.getElementById("final");
+    copyText.select();
+    document.execCommand("copy");
+    alert("copy to  clipboard");
+}
+
 
 
 
